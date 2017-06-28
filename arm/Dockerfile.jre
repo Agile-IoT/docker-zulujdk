@@ -1,12 +1,14 @@
 FROM resin/raspberry-pi3-debian
 
+ENV DL_PREFIX=http://cdn.azul.com/zulu-embedded/bin
+ENV ZULUJDK_VERSION=ezdk-1.8.0_121-8.20.0.42-eval-linux_aarch32hf
+
 RUN apt-get update && apt-get install --no-install-recommends -y \
     curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-ENV ZULUJDK_VERSION=$(ZULUJDK_VERSION)
 # Pull tgz version of ZuluJDK
-RUN curl -O http://cdn.azul.com/zulu-embedded/bin/$(ZULUJDK_VERSION).tar.gz && \
+RUN curl -O ${DL_PREFIX}/$(ZULUJDK_VERSION).tar.gz && \
     mkdir -p /usr/lib/jvm && \
     tar xf $(ZULUJDK_VERSION).tar.gz && \
     mv $(ZULUJDK_VERSION)/jre /usr/lib/jvm/ && \
