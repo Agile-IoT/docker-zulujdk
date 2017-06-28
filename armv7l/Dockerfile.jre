@@ -10,7 +10,9 @@ RUN curl -O ${DL_PREFIX}/${ZULUJDK_VERSION}.tar.gz && \
     mv ${ZULUJDK_VERSION}/jre /usr/lib/jvm/ && \
     rm -rf ${ZULUJDK_VERSION} ${ZULUJDK_VERSION}.tar.gz
 
+ENV JAVA_HOME="/usr/lib/jvm/jre"
+
 # Enforce java version through path. This is needed to override JDK version installed later as dependencies.
 # Setting up alternatives (update-alternatives) correctly might be a better way in debian.
-ENV PATH="/usr/lib/jvm/jre/bin/:${PATH}"
+ENV PATH="${JAVA_HOME}/bin/:${PATH}"
 
