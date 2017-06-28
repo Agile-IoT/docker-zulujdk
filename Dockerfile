@@ -1,4 +1,10 @@
-FROM resin/raspberrypi3-buildpack-deps:jessie-scm
+FROM resin/raspberry-pi3-debian
+
+RUN apt-get update && apt-get install --no-install-recommends -y \
+    curl \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+#FROM resin/raspberrypi3-buildpack-deps:jessie-scm
 
 # Notes: there are debian/ubuntu repositories, but only for x86_64. This is how it would work:
 # Pull Zulu OpenJDK binaries from official repository:
