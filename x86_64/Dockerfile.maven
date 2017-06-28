@@ -1,4 +1,4 @@
-FROM agileiot/nuc-zulujdk:8-jdk
+FROM agileiot/intel-nuc-zulujdk:8-jdk
 
 # Add packages
 RUN apt-get update && apt-get install --no-install-recommends -y \

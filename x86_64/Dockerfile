@@ -1,11 +1,7 @@
-FROM resin/nuc-debian
+FROM resin/intel-nuc-buildpack-deps:jessie-scm
 
 ENV DL_PREFIX=http://cdn.azul.com/zulu/bin
 ENV ZULUJDK_VERSION=zulu8.21.0.1-jdk8.0.131-linux_x64
-
-RUN apt-get update && apt-get install --no-install-recommends -y \
-    curl \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Notes: there are debian/ubuntu repositories, but only for x86_64. This is how it would work:
 # Pull Zulu OpenJDK binaries from official repository:
