@@ -1,10 +1,12 @@
 FROM resin/raspberry-pi3-debian
+#FROM resin/raspberrypi3-buildpack-deps:jessie-scm # this version had core dumps
+
+ENV DL_PREFIX=http://cdn.azul.com/zulu-embedded/bin
+ENV ZULUJDK_VERSION=ezdk-1.8.0_121-8.20.0.42-eval-linux_aarch32hf
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     curl \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
-
-#FROM resin/raspberrypi3-buildpack-deps:jessie-scm
 
 # Notes: there are debian/ubuntu repositories, but only for x86_64. This is how it would work:
 # Pull Zulu OpenJDK binaries from official repository:
@@ -13,9 +15,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 #RUN apt-get update
 #RUN apt-get -y install zulu-8=8.21.0.1
 
-ENV ZULUJDK_VERSION=ezdk-1.8.0_121-8.20.0.42-eval-linux_aarch32hf
 # Pull tgz version of ZuluJDK
-RUN curl -O http://cdn.azul.com/zulu-embedded/bin/${ZULUJDK_VERSION}.tar.gz && \
+RUN curl -O ${DL_PREFIX}/${ZULUJDK_VERSION}.tar.gz && \
     mkdir -p /usr/lib/jvm && \
     tar xf ${ZULUJDK_VERSION}.tar.gz -C /usr/lib/jvm && \
     rm ${ZULUJDK_VERSION}.tar.gz
