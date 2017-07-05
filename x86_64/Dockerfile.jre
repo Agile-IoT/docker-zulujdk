@@ -1,4 +1,4 @@
-FROM resin/intel-nuc-buildpack-deps:jessie-curl
+FROM resin/intel-nuc-buildpack-deps:jessie-curl-20170425
 
 ENV DL_PREFIX=http://cdn.azul.com/zulu/bin
 ENV ZULUJDK_VERSION=zulu8.21.0.1-jdk8.0.131-linux_x64
