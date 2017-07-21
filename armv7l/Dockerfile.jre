@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi3-buildpack-deps:jessie-curl
+FROM resin/raspberry-pi3-buildpack-deps:jessie-curl-20170425
 
 ENV DL_PREFIX=http://cdn.azul.com/zulu-embedded/bin
 ENV ZULUJDK_VERSION=ezdk-1.8.0_121-8.20.0.42-eval-linux_aarch32hf

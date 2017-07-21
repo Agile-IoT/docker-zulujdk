@@ -1,4 +1,4 @@
-FROM resin/raspberry-pi3-buildpack-deps:jessie-scm
+FROM resin/raspberry-pi3-buildpack-deps:jessie-scm-20170425
 #FROM resin/raspberrypi3-buildpack-deps:jessie-scm # this version had core dumps
 
 ENV DL_PREFIX=http://cdn.azul.com/zulu-embedded/bin
