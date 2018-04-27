@@ -17,6 +17,11 @@ docker build -f armv7l/Dockerfile.maven -t agileiot/raspberry-pi3-zulujdk:8-jdk-
 docker build -f armv7l/Dockerfile.jre   -t agileiot/raspberry-pi3-zulujdk:8-jre       armv7l
 docker build -f armv7l/Dockerfile.alpine-jre   -t agileiot/raspberry-pi3-zulujdk:8-jre-alpine armv7l
 
+docker build -f aarch64/Dockerfile       -t agileiot/raspberry-pi3-zulujdk:8-jdk       aarch64
+docker build -f aarch64/Dockerfile.maven -t agileiot/raspberry-pi3-zulujdk:8-jdk-maven aarch64
+docker build -f aarch64/Dockerfile.jre   -t agileiot/raspberry-pi3-zulujdk:8-jre       aarch64
+docker build -f aarch64/Dockerfile.alpine-jre   -t agileiot/raspberry-pi3-zulujdk:8-jre-alpine aarch64
+
 docker build -f x86_64/Dockerfile       -t agileiot/intel-nuc-zulujdk:8-jdk       x86_64
 docker build -f x86_64/Dockerfile.maven -t agileiot/intel-nuc-zulujdk:8-jdk-maven x86_64
 docker build -f x86_64/Dockerfile.jre   -t agileiot/intel-nuc-zulujdk:8-jre       x86_64
